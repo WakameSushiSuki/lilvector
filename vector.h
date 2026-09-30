@@ -12,7 +12,7 @@ typedef struct {
 
 Vector vector_new(size_t elem_size, size_t initial);
 Vector vector_copy(Vector *v);
-static inline void *vector_at(Vector *v, size_t index);
+inline void *vector_at(Vector *v, size_t index);
 inline void *vector_top(Vector *v);
 inline void vector_read(Vector *v, void *out, size_t index);
 inline void vector_write(Vector *v, size_t index, const void *data);
