@@ -21,7 +21,7 @@ Vector vector_new(size_t elem_size, size_t initial) {
     };
 }
 
-Vector vector_copy(Vector *v) {
+Vector vector_copy(const Vector *v) {
     Vector cpy = {
         .count = v->count,
         .cap = v->cap,
@@ -33,15 +33,15 @@ Vector vector_copy(Vector *v) {
     return cpy;
 }
 
-inline void *vector_at(Vector *v, size_t index) {
+inline void *vector_at(const Vector *v, size_t index) {
     return v->ptr + index * v->elem_size;
 }
 
-inline void *vector_top(Vector *v) {
+inline void *vector_top(const Vector *v) {
     return vector_at(v, v->count - 1);
 }
 
-inline void vector_read(Vector *v, void *out, size_t index) {
+inline void vector_read(const Vector *v, void *out, size_t index) {
     memmove(out, vector_at(v, index), v->elem_size);
 }
 
@@ -56,12 +56,12 @@ void vector_push(Vector *v, const void *data) {
     vector_write(v, v->count++, data);
 }
 
-inline void vector_pop(Vector *v) {
-    if (!v->count) return;
-    v->count--;
-}
-
 inline void vector_push_array(Vector *v, size_t count, const void* items) {
     for (size_t i = 0; i < count; i++)
         vector_push(v, items + i * v->elem_size);
+}
+
+inline void vector_pop(Vector *v) {
+    if (!v->count) return;
+    v->count--;
 }
