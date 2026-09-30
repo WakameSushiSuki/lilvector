@@ -33,7 +33,7 @@ Vector vector_copy(Vector *v) {
     return cpy;
 }
 
-static inline void *vector_at(Vector *v, size_t index) {
+inline void *vector_at(Vector *v, size_t index) {
     return v->ptr + index * v->elem_size;
 }
 
