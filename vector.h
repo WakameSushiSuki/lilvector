@@ -17,7 +17,7 @@ inline void *vector_top(const Vector *v);
 inline void vector_read(const Vector *v, void *out, size_t index);
 inline void vector_write(Vector *v, size_t index, const void *data);
 void vector_push(Vector *v, const void *data);
-inline void vector_pop(Vector *v, void *out);
 inline void vector_push_array(Vector *v, size_t count, const void* items);
+inline void vector_pop(Vector *v);
 
 #endif VECTOR_H
