@@ -6,7 +6,7 @@
 #include <string.h>
 
 Vector vector_new(size_t elem_size, size_t initial) {
-    return (Vector) {
+    return (Vector){
         .count = 0,
         .cap = initial,
         .elem_size = elem_size,
@@ -16,7 +16,7 @@ Vector vector_new(size_t elem_size, size_t initial) {
 
 void vector_free(Vector *v) {
     free(v->ptr);
-    *v = (Vector) { 0 };
+    *v = (Vector){ 0 };
 }
 
 Vector vector_copy(const Vector *v) {
