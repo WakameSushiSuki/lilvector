@@ -16,7 +16,7 @@ Vector vector_new(size_t elem_size, size_t initial) {
 
 void vector_free(Vector *v) {
     free(v->ptr);
-    *v = { 0 };
+    *v = (Vector) { 0 };
 }
 
 Vector vector_copy(const Vector *v) {
