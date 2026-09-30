@@ -5,13 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct {
-    void *ptr;
-    size_t count;
-    size_t cap;
-    size_t elem_size;
-} Vector;
-
 Vector vector_new(size_t elem_size, size_t initial) {
     return (Vector) {
         .count = 0,
