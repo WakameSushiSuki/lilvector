@@ -2,6 +2,8 @@
 // relies on gcc void* arithmetic extension, im too lazy to cast
 
 #include "vector.h"
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct {
     void *ptr;
