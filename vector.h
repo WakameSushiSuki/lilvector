@@ -11,13 +11,14 @@ typedef struct {
 } Vector;
 
 Vector vector_new(size_t elem_size, size_t initial);
+void vector_free(Vector *v);
 Vector vector_copy(const Vector *v);
-inline void *vector_at(const Vector *v, size_t index);
-inline void *vector_top(const Vector *v);
-inline void vector_read(const Vector *v, void *out, size_t index);
-inline void vector_write(Vector *v, size_t index, const void *data);
+void *vector_at(const Vector *v, size_t index);
+void *vector_top(const Vector *v);
+void vector_read(const Vector *v, void *out, size_t index);
+void vector_write(Vector *v, size_t index, const void *data);
 void vector_push(Vector *v, const void *data);
-inline void vector_push_array(Vector *v, size_t count, const void* items);
-inline void vector_pop(Vector *v);
+void vector_push_array(Vector *v, size_t count, const void* items);
+void vector_pop(Vector *v);
 
 #endif VECTOR_H
