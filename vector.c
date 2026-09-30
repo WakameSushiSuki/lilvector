@@ -67,6 +67,5 @@ void vector_push_array(Vector *v, size_t count, const void* items) {
 }
 
 void vector_pop(Vector *v) {
-    if (!v->count) return;
     v->count--;
 }
