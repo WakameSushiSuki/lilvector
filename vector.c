@@ -48,8 +48,9 @@ void vector_write(Vector *v, size_t index, const void *data) {
 }
 
 void vector_push(Vector *v, const void *data) {
-    if (v->count >= v->cap)
-        v->ptr = realloc(v->ptr, (v->cap *= 2) * v->elem_size);
+    register size_t cap = v->cap;
+    if (v->count >= cap)
+        v->ptr = realloc(v->ptr, (v->cap = cap ? cap * 2 : 1) * v->elem_size);
 
     vector_write(v, v->count++, data);
 }
